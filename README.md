@@ -1,2 +1,2 @@
-# Exercism
- Armazena minhas soluções dos exercícios da plataforma Exercism.
+# Praticando
+Armazena minhas soluções de plataformas de exercícios.
