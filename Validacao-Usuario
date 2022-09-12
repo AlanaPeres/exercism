@@ -1,0 +1,44 @@
+package main
+
+import (
+   "fmt"
+   "unicode"
+)
+//CodelandUsernameValidation determine se a string é um nome de usuário válido
+func CodelandUsernameValidation(str string) string {
+  // code goes here 
+  if Caracter(str){
+    if primeiraLetra(str){
+      if caracterSublinhado(str){
+        return "true"
+      }
+    }
+  }
+  return "false"
+}
+//Caracter verificar se str possui de 4 - 25 caracteres.
+func Caracter(str string) bool {
+  if len(str) > 4 && len(str) < 25 {
+    return true
+  }
+  return false
+}
+//primeiraLetra verifica se o primeiro caracter é uma letra.
+func primeiraLetra(str string) bool{
+  if unicode.IsLetter(rune(str[0])){
+    return true
+  }
+  return false
+}
+//caracterSublinhado verifica se o último caracter é _
+func caracterSublinhado(str string)bool{
+  for _, char := range str {
+    if !unicode.IsLetter(rune(char)) && !unicode.IsDigit(rune(char)) && !(rune(char) == '_'){
+      return false
+    }
+  }
+  return true
+}
+func main() {
+  fmt.Println(CodelandUsernameValidation(readline()))
+}
