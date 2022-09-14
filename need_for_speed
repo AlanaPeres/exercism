@@ -1,0 +1,49 @@
+type Car struct {
+	batteryDrain 	int
+	speed 		 	int
+    battery 		int
+    distance 		int
+}
+
+// NewCar cria um novo carro de controle remoto com bateria cheia e especificações dadas.
+func NewCar(speed, batteryDrain int) Car {
+    var car Car
+    car.speed = 5
+    car.batteryDrain = 2
+    car.battery = 100
+    return car
+	panic("Please implement the NewCar function")
+}
+
+// TODO: define the 'Track' type struct
+type Track struct {
+    distance int
+}
+// NewTrack cria uma nova faixa
+func NewTrack(distance int) Track {
+    return Track{distance:distance}
+	panic("Please implement the NewTrack function")
+}
+
+// Drive dirige o carro uma vez. Se não houver bateria suficiente para dirigir mais uma vez,
+// o carro não se move.
+func Drive(car Car) Car {
+    if car.battery >= car.batteryDrain {
+		car.battery -= car.batteryDrain
+		car.distance += car.speed
+		return car
+	}
+	return car
+    
+	panic("Please implement the Drive function")
+}
+
+// CanFinish verifica se um carro é capaz de terminar uma determinada pista.
+func CanFinish(car Car, track Track) bool {
+    carro := (car.battery / car.batteryDrain) * car.speed
+	if carro < track.distance {
+		return false
+	}
+	return true
+	panic("Please implement the CanFinish function")
+}
